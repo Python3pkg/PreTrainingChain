@@ -10,8 +10,8 @@
 #-------------------------------------------------------------------------------
 
 import numpy as np
-from PreTrainingChain import ChainClassfier
-from util import make_sample
+from .PreTrainingChain import ChainClassfier
+from .util import make_sample
 
 
 if __name__ == '__main__':
@@ -45,5 +45,5 @@ if __name__ == '__main__':
     #y_train: sample target for test as deep network (e.g. 0-9 for MNIST)
     #isClassification: Classification problem or not
     pc.fit(x_train, y_train, x_pre_train=x_pre_train)
-    print('test_accuracy: {0}'.format(pc.score(x_test, y_test)))
+    print(('test_accuracy: {0}'.format(pc.score(x_test, y_test))))
 

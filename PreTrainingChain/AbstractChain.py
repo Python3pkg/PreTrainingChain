@@ -14,7 +14,7 @@ from sklearn.base import BaseEstimator, ClassifierMixin
 import chainer.functions as F
 import numpy as np
 import six
-import pt_linear as P
+from . import pt_linear as P
 
 
 class AbstractChain(ChainList, BaseEstimator, ClassifierMixin):
@@ -161,7 +161,7 @@ class AbstractChain(ChainList, BaseEstimator, ClassifierMixin):
             else:
                 predict = self.predict(x_test)
             test_loss = self.loss_function(Variable(predict), y).data
-            print('test_loss: ' + str(test_loss))
+            print(('test_loss: ' + str(test_loss)))
             if self.isClassification:
                 test_accuracy = F.accuracy(Variable(predict), y).data
                 return float(test_accuracy)
@@ -224,7 +224,7 @@ class ChildChainList(ChainList):
                 x = Variable(x_test)
                 test_loss = self.loss_function(self[0](x), x).data
         if test_loss is not None:
-            print('Pre-training test loss: ' + str(test_loss))
+            print(('Pre-training test loss: ' + str(test_loss)))
         if self.visualize:
             import chainer.computational_graph as c
             g = c.build_computational_graph((loss,))

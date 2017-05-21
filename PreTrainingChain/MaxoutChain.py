@@ -11,7 +11,7 @@
 
 from chainer import Variable
 from chainer import optimizers
-from AbstractChain import AbstractChain
+from .AbstractChain import AbstractChain
 import chainer.functions as F
 import chainer.links as L
 import numpy as np

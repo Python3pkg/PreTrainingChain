@@ -10,7 +10,7 @@
 #-------------------------------------------------------------------------------
 
 from chainer import Variable
-from AbstractChain import AbstractChain
+from .AbstractChain import AbstractChain
 import chainer.functions as F
 import numpy as np
 import six

@@ -11,9 +11,9 @@
 
 
 import numpy as np
-from PreTrainingChain import ChainClassfier
+from .PreTrainingChain import ChainClassfier
 from sklearn import grid_search
-from util import make_sample
+from .util import make_sample
 
 if __name__ == '__main__':
     pre_train_size = 1
@@ -39,5 +39,5 @@ if __name__ == '__main__':
     result = grid_search.GridSearchCV(pc, {'n_units': ([784,400,150,10], [784,300,150,10]),
                                            'epoch': (10, 14)}, verbose=3, n_jobs=1, cv=2)
     result.fit(x_train, y_train)
-    print(result.best_params_)
+    print((result.best_params_))
 
